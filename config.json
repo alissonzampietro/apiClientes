@@ -1,0 +1,8 @@
+{
+	"database": {
+		"host" : "localhost",
+		"database" : "drcon",
+		"user" : "root",
+		"password" : "123456"
+	}
+}
