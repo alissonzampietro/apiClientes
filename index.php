@@ -1,14 +1,8 @@
 <?php
 
-
 require __DIR__."/vendor/autoload.php";
 
 $config = json_decode(file_get_contents("config.json"));
-
 define("DATABASE", $config);
 
-$inputs = json_decode(file_get_contents("php://input"), true);
-
-echo "<pre>";
-var_dump($inputs);
-exit;
+require __DIR__."/bootstrap.php";
