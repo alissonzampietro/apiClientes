@@ -14,19 +14,16 @@ class Router implements Routing{
     }
     
     public function get($route, $function) {
-        $this->validateService();
-        var_dump($this->service);
-        //$function($instance);
+       if($_SERVER['REQUEST_METHOD'] != "GET")
+           return;
+       
+       if(strtolower($route) != $this->service)
+           return;
+       
+       Response::show("Método encontrado");
     }
     
     public function post($route, $function) {
         
-    }
-    
-    private function validateService() {
-        if($this->service == NULL){
-            Response::show("Por favor, insira o serviço");
-            break;
-        }
     }
 }
