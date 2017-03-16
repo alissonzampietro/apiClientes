@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\DAO\;
+namespace App\DAO;
 
 class CreateConnection {
 	private static $database = NULL;
@@ -8,9 +8,9 @@ class CreateConnection {
 	public function __construct($obgDatabase) {
 		$self::database = $obgDatabase;
 	}
-	public static getConnection() {
+	public static function getConnection() {
 		if($self::database == null)
-			throw new Exception("Não foi uma criada conexão!")
+			throw new Exception("Não foi uma criada conexão!");
 		return $self::database;
 	}
 }

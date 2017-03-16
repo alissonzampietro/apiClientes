@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\DAO\;
+namespace App\DAO;
 
 class CreateConnection {
 	private static $database = NULL;
@@ -8,7 +8,7 @@ class CreateConnection {
 	public function __construct() {
 
 	}
-	public static getConnection() {
+	public static function getConnection() {
 		return $self::database;
 	}
 }
