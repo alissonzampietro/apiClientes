@@ -2,15 +2,9 @@
 
 namespace App\DAO;
 
-class CreateConnection {
-	private static $database = NULL;
+use PHPUnit\Framework\TestCase;
 
-	public function __construct($obgDatabase) {
-		$self::database = $obgDatabase;
-	}
-	public static function getConnection() {
-		if($self::database == null)
-			throw new Exception("Não foi uma criada conexão!");
-		return $self::database;
-	}
+class CreateConnectionTest extends TestCase {
+    
+
 }

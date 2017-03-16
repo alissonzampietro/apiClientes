@@ -1,10 +1,22 @@
 <?php 
 
-echo "bem vindo";
+use System\Router\Router;
+use System\Http\Request;
+use System\Http\Response;
+
+$router = new Router();
+$request = new Request();
 
 
-$inputs = json_decode(file_get_contents("php://input"), true);
+$router->get("/cliente", function() {
+   echo "oi"; 
+});
 
-echo "<pre>";
-var_dump($inputs);
-exit;
+// echo "bem vindo";
+
+
+// $inputs = json_decode(file_get_contents("php://input"), true);
+
+// echo "<pre>";
+// var_dump($inputs);
+// exit;

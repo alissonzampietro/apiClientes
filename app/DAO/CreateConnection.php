@@ -2,13 +2,15 @@
 
 namespace App\DAO;
 
+use PDO;
+
 class CreateConnection {
-	private static $database = NULL;
+	private $database = NULL;
 
-	public function __construct() {
-
+	public function __construct($hosts, $user, $pass, $database) {
+        $this->database = new PDO("mysql:host=$hosts;dbname=$database",$user,$pass);
 	}
-	public static function getConnection() {
-		return $self::database;
+	public function getConnection() {
+		return $this->database;
 	}
 }
