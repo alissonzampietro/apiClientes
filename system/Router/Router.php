@@ -2,6 +2,8 @@
 
 namespace System\Router;
 
+use System\Http\Response;
+
 class Router implements Routing{
     
     private $service;
@@ -23,8 +25,7 @@ class Router implements Routing{
     
     private function validateService() {
         if($this->service == NULL){
-            var_dump($_SERVER['HTTP_ACCEPT'] == "*/*" ? "Isso mesmo" : "Não");
-            echo "Por favor, consulte";
+            Response::show("Por favor, insira o serviço");
             break;
         }
     }

@@ -4,14 +4,14 @@ namespace System\Http;
 
 class Request {
     
-    private $typeEncodeResponse;
+    private static $typeEncodeResponse;
     
     public function __construct()
     {
-        $this->typeEncodeResponse = $_SERVER['HTTP_ACCEPT'] == "*/*" ? "application/json" : $_SERVER['HTTP_ACCEPT'];
+        self::$typeEncodeResponse = $_SERVER['HTTP_ACCEPT'] == "*/*" ? "application/json" : $_SERVER['HTTP_ACCEPT'];
     }
     
-    public function getRequiredEncodeResponse(){
-        return $this->typeEncodeResponse;
+    public static function getRequiredEncodeResponse(){
+        return self::$typeEncodeResponse;
     }
 }
