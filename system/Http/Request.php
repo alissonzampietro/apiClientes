@@ -8,7 +8,7 @@ class Request {
     
     public function __construct()
     {
-        self::$typeEncodeResponse = $_SERVER['HTTP_ACCEPT'] == "*/*" ? "application/json" : $_SERVER['HTTP_ACCEPT'];
+        self::$typeEncodeResponse = $_SERVER['HTTP_ACCEPT'];
     }
     
     public static function getRequiredEncodeResponse(){

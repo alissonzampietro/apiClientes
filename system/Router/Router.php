@@ -2,28 +2,34 @@
 
 namespace System\Router;
 
-use System\Http\Response;
-
 class Router implements Routing{
     
-    private $service;
+    private url;
+    
+    private function getParametersURL($url, $needled)
+    {
+//         strpos($route, $needle)
+        preg_match("/^\/[a-z]+$/", $this->url)
+    }
     
     public function __construct()
     {
-        $this->service = (strlen($_SERVER["REQUEST_URI"]) > 1) ? strtolower($_SERVER["REQUEST_URI"]) : NULL;
+        $this->url = (strlen($_SERVER["REQUEST_URI"]) > 1) ? strtolower($_SERVER["REQUEST_URI"]) : NULL;
     }
     
     public function get($route, $function) {
-       if($_SERVER['REQUEST_METHOD'] != "GET")
+       if(strtoupper($_SERVER['REQUEST_METHOD']) != "GET")
            return;
        
-       if(strtolower($route) != $this->service)
+       if(strtolower($route) != $this->url)
            return;
        
-       Response::show("Método encontrado");
+       
+       $function();
     }
     
     public function post($route, $function) {
-        
+        if(strtoupper($_SERVER['REQUEST_METHOD']) != "POST")
+            return;
     }
 }
